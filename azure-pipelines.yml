@@ -46,14 +46,6 @@ stages:
 
     - upload: charts
       artifact: charts
- 
-- task: SnykSecurityScan@1
-  inputs:
-    serviceConnectionEndpoint: 'pygoat'
-    testType: 'app'
-    targetFile: 'Dockerfile'
-    monitorWhen: 'always'
-    failOnIssues: false
 
 - stage: Deploy
   displayName: Deploy stage
