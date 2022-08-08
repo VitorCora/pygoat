@@ -48,7 +48,7 @@ stages:
       artifact: charts
 
 - stage: Deploy
-  displayName: Deploy stage
+  displayName: Build
   dependsOn: Test Dependencies
 
   jobs:
