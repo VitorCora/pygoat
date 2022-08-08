@@ -47,10 +47,6 @@ stages:
     - upload: charts
       artifact: charts
 
-- stage: Test Dependencies
-  displayName: C1OSS Stage
-  dependsOn: Build
-
 steps:  
 - script: |
     pip install -r requirements.txt
