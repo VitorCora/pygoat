@@ -51,25 +51,18 @@ stages:
   displayName: C1OSS Stage
   dependsOn: Build
 
-  jobs:
-  - deployment: Test Dependencies
-    displayName: Test Dependencies
-    pool:
-      vmImage: $(vmImageName)
-    environment: 'VitorCorapygoat.test'
-  steps:  
-  - script: |
-      pip install -r requirements.txt
-    displayName: 'Snyk preparations'
+steps:  
+- script: |
+    pip install -r requirements.txt
+  displayName: 'Snyk preparations'
   
-  - task: SnykSecurityScan@1
-    inputs:
-      serviceConnectionEndpoint: 'pygoat'
-      testType: 'app'
-      targetFile: 'Dockerfile'
-      monitorWhen: 'always'
-      failOnIssues: false
-
+- task: SnykSecurityScan@1
+  inputs:
+    serviceConnectionEndpoint: 'pygoat'
+    testType: 'app'
+    targetFile: 'Dockerfile'
+    monitorWhen: 'always'
+    failOnIssues: false
 
 - stage: Deploy
   displayName: Deploy stage
