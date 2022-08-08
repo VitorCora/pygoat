@@ -57,7 +57,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     environment: 'VitorCorapygoat.test'
-    
+  steps:  
   - script: |
       pip install -r requirements.txt
     displayName: 'Snyk preparations'
