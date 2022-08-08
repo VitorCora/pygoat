@@ -46,12 +46,7 @@ stages:
 
     - upload: charts
       artifact: charts
-
-steps:  
-- script: |
-    pip install -r requirements.txt
-  displayName: 'Snyk preparations'
-  
+ 
 - task: SnykSecurityScan@1
   inputs:
     serviceConnectionEndpoint: 'pygoat'
