@@ -62,13 +62,13 @@ stages:
       pip install -r requirements.txt
     displayName: 'Snyk preparations'
   
-    - task: SnykSecurityScan@1
-      inputs:
-        serviceConnectionEndpoint: 'pygoat'
-        testType: 'app'
-        targetFile: 'Dockerfile'
-        monitorWhen: 'always'
-        failOnIssues: false
+  - task: SnykSecurityScan@1
+    inputs:
+      serviceConnectionEndpoint: 'pygoat'
+      testType: 'app'
+      targetFile: 'Dockerfile'
+      monitorWhen: 'always'
+      failOnIssues: false
 
 
 - stage: Deploy
